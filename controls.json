@@ -1,0 +1,492 @@
+{
+ "module": "tool.module.js",
+ "mount": "mount(hostElement, {ui:false, persist:false, maxHeight:px, params:{}, data:text|rows}) -> api",
+ "controls": [
+  {
+   "id": "mode",
+   "group": "Data",
+   "label": "Numbers show",
+   "type": "select",
+   "options": [
+    [
+     "values",
+     "My data"
+    ],
+    [
+     "percent",
+     "Share of the grid, %"
+    ]
+   ],
+   "default": "values"
+  },
+  {
+   "id": "decSep",
+   "group": "Data",
+   "label": "Decimal separator",
+   "type": "select",
+   "options": [
+    [
+     "auto",
+     "Detect"
+    ],
+    [
+     ",",
+     "Comma (2,6)"
+    ],
+    [
+     ".",
+     "Point (2.6)"
+    ]
+   ],
+   "default": "auto"
+  },
+  {
+   "id": "sizeSrc",
+   "group": "Data",
+   "label": "Sector size comes from",
+   "type": "select",
+   "options": [
+    [
+     "manual",
+     "The shares I set"
+    ],
+    [
+     "abs",
+     "The data, proportionally"
+    ],
+    [
+     "rel",
+     "The data's change vs the first column"
+    ]
+   ],
+   "default": "manual"
+  },
+  {
+   "id": "minShare",
+   "group": "Data",
+   "label": "Smallest allowed sector, %",
+   "type": "range",
+   "min": 0,
+   "max": 6,
+   "step": 0.5,
+   "default": 0
+  },
+  {
+   "id": "frame",
+   "group": "Playback",
+   "label": "Column (1-based)",
+   "type": "number",
+   "min": 1,
+   "max": 12,
+   "step": 1,
+   "default": 1
+  },
+  {
+   "id": "playSec",
+   "group": "Playback",
+   "label": "Seconds per column",
+   "type": "range",
+   "min": 0.8,
+   "max": 6,
+   "step": 0.2,
+   "default": 2.2
+  },
+  {
+   "id": "playLoop",
+   "group": "Playback",
+   "label": "When it reaches the end",
+   "type": "select",
+   "options": [
+    [
+     "loop",
+     "Start again"
+    ],
+    [
+     "pingpong",
+     "Back and forth"
+    ],
+    [
+     "once",
+     "Stop"
+    ]
+   ],
+   "default": "loop"
+  },
+  {
+   "id": "demoSec",
+   "group": "Playback",
+   "label": "Seconds between demo changes",
+   "type": "range",
+   "min": 0.8,
+   "max": 6,
+   "step": 0.2,
+   "default": 2
+  },
+  {
+   "id": "scheme",
+   "group": "Design",
+   "label": "Palette",
+   "type": "select",
+   "options": [
+    [
+     "autumn",
+     "Autumn (Brik)"
+    ],
+    [
+     "roots",
+     "Roots United"
+    ],
+    [
+     "boniver",
+     "Bon Iver"
+    ],
+    [
+     "breuer",
+     "Third Room"
+    ],
+    [
+     "subvert",
+     "Subvert zine"
+    ],
+    [
+     "weird",
+     "Weird things"
+    ],
+    [
+     "dandy",
+     "Dandy takeout"
+    ],
+    [
+     "riso",
+     "Riso workshop"
+    ]
+   ],
+   "default": "autumn"
+  },
+  {
+   "id": "fillMode",
+   "group": "Design",
+   "label": "Fill style",
+   "type": "select",
+   "options": [
+    [
+     "solid",
+     "Solid"
+    ],
+    [
+     "gradient",
+     "Soft gradients"
+    ],
+    [
+     "mixed",
+     "Mixed"
+    ]
+   ],
+   "default": "solid"
+  },
+  {
+   "id": "grain",
+   "group": "Design",
+   "label": "Grain, %",
+   "type": "range",
+   "min": 0,
+   "max": 100,
+   "step": 1,
+   "default": 6
+  },
+  {
+   "id": "aspect",
+   "group": "Design",
+   "label": "Format",
+   "type": "select",
+   "options": [
+    [
+     1.5,
+     "Landscape 3:2"
+    ],
+    [
+     0.8,
+     "Portrait 4:5"
+    ],
+    [
+     0.707,
+     "Portrait A-series"
+    ],
+    [
+     1,
+     "Square"
+    ],
+    [
+     1.778,
+     "Wide 16:9"
+    ]
+   ],
+   "default": 0.8
+  },
+  {
+   "id": "gap",
+   "group": "Design",
+   "label": "Gap, px",
+   "type": "range",
+   "min": 0,
+   "max": 24,
+   "step": 1,
+   "default": 0
+  },
+  {
+   "id": "radius",
+   "group": "Design",
+   "label": "Corner radius, px",
+   "type": "range",
+   "min": 0,
+   "max": 40,
+   "step": 1,
+   "default": 0
+  },
+  {
+   "id": "title",
+   "group": "Design",
+   "label": "Title",
+   "type": "text",
+   "default": ""
+  },
+  {
+   "id": "typo",
+   "group": "Text",
+   "label": "Typography",
+   "type": "select",
+   "options": [
+    [
+     "classic",
+     "Classic"
+    ],
+    [
+     "poster",
+     "Poster (Brik)"
+    ]
+   ],
+   "default": "poster"
+  },
+  {
+   "id": "numFit",
+   "group": "Text",
+   "label": "Number size",
+   "type": "select",
+   "options": [
+    [
+     "fixed",
+     "Fixed"
+    ],
+    [
+     "fill",
+     "Fill sector"
+    ]
+   ],
+   "default": "fill"
+  },
+  {
+   "id": "textFit",
+   "group": "Text",
+   "label": "If text doesn't fit",
+   "type": "select",
+   "options": [
+    [
+     "clip",
+     "Clip it"
+    ],
+    [
+     "hide",
+     "Fade it out"
+    ]
+   ],
+   "default": "clip"
+  },
+  {
+   "id": "typeMode",
+   "group": "Text",
+   "label": "Typewriter",
+   "type": "select",
+   "options": [
+    [
+     "first",
+     "First appearance only"
+    ],
+    [
+     "always",
+     "Also when rotating"
+    ],
+    [
+     "off",
+     "Off"
+    ]
+   ],
+   "default": "first"
+  },
+  {
+   "id": "textScale",
+   "group": "Text",
+   "label": "Scale text with the sector",
+   "type": "toggle",
+   "default": true
+  },
+  {
+   "id": "trimLines",
+   "group": "Text",
+   "label": "Trim captions by whole lines",
+   "type": "toggle",
+   "default": true
+  },
+  {
+   "id": "anim",
+   "group": "Motion",
+   "label": "Intro animation",
+   "type": "select",
+   "options": [
+    [
+     "pop",
+     "Pop in"
+    ],
+    [
+     "slide",
+     "Slide up"
+    ],
+    [
+     "wipe",
+     "Wipe"
+    ],
+    [
+     "fade",
+     "Fade"
+    ],
+    [
+     "none",
+     "None"
+    ]
+   ],
+   "default": "pop"
+  },
+  {
+   "id": "speed",
+   "group": "Motion",
+   "label": "Overall speed",
+   "type": "range",
+   "min": 0.2,
+   "max": 4,
+   "step": 0.1,
+   "default": 1
+  },
+  {
+   "id": "spSize",
+   "group": "Motion",
+   "label": "Sectors resizing",
+   "type": "range",
+   "min": 0.25,
+   "max": 3,
+   "step": 0.05,
+   "default": 1
+  },
+  {
+   "id": "spCount",
+   "group": "Motion",
+   "label": "Numbers counting",
+   "type": "range",
+   "min": 0.25,
+   "max": 3,
+   "step": 0.05,
+   "default": 1
+  },
+  {
+   "id": "spIntro",
+   "group": "Motion",
+   "label": "Intro",
+   "type": "range",
+   "min": 0.25,
+   "max": 3,
+   "step": 0.05,
+   "default": 1
+  },
+  {
+   "id": "spHover",
+   "group": "Motion",
+   "label": "Hover growth speed",
+   "type": "range",
+   "min": 0.25,
+   "max": 3,
+   "step": 0.05,
+   "default": 1
+  },
+  {
+   "id": "hover",
+   "group": "Motion",
+   "label": "Hover growth",
+   "type": "toggle",
+   "default": false
+  },
+  {
+   "id": "boost",
+   "group": "Motion",
+   "label": "Growth strength, %",
+   "type": "range",
+   "min": 20,
+   "max": 300,
+   "step": 10,
+   "default": 80
+  }
+ ],
+ "actions": [
+  {
+   "id": "replay",
+   "label": "Replay intro"
+  },
+  {
+   "id": "togglePlay",
+   "label": "Play / Pause the columns"
+  },
+  {
+   "id": "demo",
+   "label": "Demo drift on/off (argument: true/false)"
+  },
+  {
+   "id": "relayout",
+   "label": "Optimize layout"
+  },
+  {
+   "id": "recolor",
+   "label": "Shuffle colors"
+  },
+  {
+   "id": "undo",
+   "label": "Undo"
+  },
+  {
+   "id": "redo",
+   "label": "Redo"
+  },
+  {
+   "id": "groupSmall",
+   "label": "Group small sectors into Other (argument: threshold %, default 2)"
+  },
+  {
+   "id": "loadTemplate",
+   "label": "Load a template (argument: autumn or summer)"
+  }
+ ],
+ "api": [
+  "get(id)",
+  "set(id,value)",
+  "setMany(obj)",
+  "getAll()",
+  "action(id,arg)",
+  "setData(textOrRows)",
+  "getData()",
+  "getState()",
+  "setState(obj)",
+  "setMaxHeight(px)",
+  "on(event,fn)",
+  "off(event,fn)"
+ ],
+ "events": [
+  "change",
+  "frame"
+ ]
+}
