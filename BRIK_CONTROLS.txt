@@ -1,0 +1,36 @@
+id | label | type | range or options | default | group
+mode | Numbers show | select | values=My data, percent=Share of the grid, % | "values" | Data
+decSep | Decimal separator | select | auto=Detect, ,=Comma (2,6), .=Point (2.6) | "auto" | Data
+sizeSrc | Sector size comes from | select | manual=The shares I set, abs=The data, proportionally, rel=The data's change vs the first column | "manual" | Data
+minShare | Smallest allowed sector, % | range | 0 to 6, step 0.5 | 0 | Data
+frame | Column (1-based) | number | 1 to 12, step 1 | 1 | Playback
+playSec | Seconds per column | range | 0.8 to 6, step 0.2 | 2.2 | Playback
+playLoop | When it reaches the end | select | loop=Start again, pingpong=Back and forth, once=Stop | "loop" | Playback
+demoSec | Seconds between demo changes | range | 0.8 to 6, step 0.2 | 2 | Playback
+scheme | Palette | select | autumn=Autumn (Brik), roots=Roots United, boniver=Bon Iver, breuer=Third Room, subvert=Subvert zine, weird=Weird things, dandy=Dandy takeout, riso=Riso workshop | "autumn" | Design
+fillMode | Fill style | select | solid=Solid, gradient=Soft gradients, mixed=Mixed | "solid" | Design
+grain | Grain, % | range | 0 to 100, step 1 | 6 | Design
+aspect | Format | select | 1.5=Landscape 3:2, 0.8=Portrait 4:5, 0.707=Portrait A-series, 1=Square, 1.778=Wide 16:9 | 0.8 | Design
+gap | Gap, px | range | 0 to 24, step 1 | 0 | Design
+radius | Corner radius, px | range | 0 to 40, step 1 | 0 | Design
+title | Title | text |  | "" | Design
+typo | Typography | select | classic=Classic, poster=Poster (Brik) | "poster" | Text
+numFit | Number size | select | fixed=Fixed, fill=Fill sector | "fill" | Text
+textFit | If text doesn't fit | select | clip=Clip it, hide=Fade it out | "clip" | Text
+typeMode | Typewriter | select | first=First appearance only, always=Also when rotating, off=Off | "first" | Text
+textScale | Scale text with the sector | toggle |  | true | Text
+trimLines | Trim captions by whole lines | toggle |  | true | Text
+anim | Intro animation | select | pop=Pop in, slide=Slide up, wipe=Wipe, fade=Fade, none=None | "pop" | Motion
+speed | Overall speed | range | 0.2 to 4, step 0.1 | 1 | Motion
+spSize | Sectors resizing | range | 0.25 to 3, step 0.05 | 1 | Motion
+spCount | Numbers counting | range | 0.25 to 3, step 0.05 | 1 | Motion
+spIntro | Intro | range | 0.25 to 3, step 0.05 | 1 | Motion
+spHover | Hover growth speed | range | 0.25 to 3, step 0.05 | 1 | Motion
+hover | Hover growth | toggle |  | false | Motion
+template | Template for the "Load template" button | select | autumn=Autumn Statistics (Brik poster), summer=Summer numbers | "autumn" | Data
+groupThreshold | "Group small" threshold, % | range | 1 to 5, step 1 | 2 | Data
+data | Data table (paste rows; first row may be column headers) | textarea |  | "" | Data
+maxHeight | Max height, px | range | 300 to 1600, step 10 | 900 | Canvas
+boost | Growth strength, % | range | 20 to 300, step 10 | 80 | Motion
+
+Buttons (id = act_<name>): act_replay (Replay intro), act_togglePlay (Play / Pause the columns), act_demo (Demo drift on/off (argument: true/false)), act_relayout (Optimize layout), act_recolor (Shuffle colors), act_undo (Undo), act_redo (Redo), act_groupSmall (Group small sectors into Other (argument: threshold %, default 2)), act_loadTemplate (Load a template (argument: autumn or summer))
